@@ -1,22 +1,11 @@
-// upload.ts
-import express, { Request, Response } from 'express';
+// @ts-nocheck
 import multer from 'multer';
 import multerS3 from 'multer-s3';
 import fs from 'fs';
 import path from 'path';
 import { S3Client } from '@aws-sdk/client-s3';
-import { fileURLToPath } from 'url';
 import { env } from '../utils/env';
 
-const router = express.Router();
-
-// Fix __dirname for ES Modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// --------------------
-// Local storage setup
-// --------------------
 const localStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     const uploadPath = path.resolve(env.LOCAL_UPLOAD_PATH || 'uploads');
@@ -31,9 +20,6 @@ const localStorage = multer.diskStorage({
   },
 });
 
-// --------------------
-// R2/S3 storage setup
-// --------------------
 const r2Config = new S3Client({
   region: env.R2_REGION,
   endpoint: env.R2_ENDPOINT,
@@ -52,9 +38,7 @@ const r2Storage = multerS3({
   },
 });
 
-// --------------------
-// Choose storage
-// --------------------
+
 const getStorageEngine = () => {
   const provider = env.STORAGE_PROVIDER;
   switch (provider) {
@@ -69,4 +53,3 @@ const getStorageEngine = () => {
 const upload = multer({ storage: getStorageEngine() });
 
 export default upload;
-

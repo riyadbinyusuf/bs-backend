@@ -4,7 +4,7 @@ import { env } from "../utils/env";
 
 export const fileUpload = async (req: Request, res: Response) => {
   const uploadedFile = req.file;
-
+  console.log({uploadedFile})
   if (!uploadedFile) {
     return res
       .status(400)
