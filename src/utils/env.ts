@@ -1,0 +1,25 @@
+import 'dotenv/config';
+
+export const env = {
+  NODE_ENV: process.env.NODE_ENV || 'development',
+  PORT: process.env.PORT || 3000,
+  CLIENT_URL: process.env.CLIENT_URL || 'http://localhost:3000',
+  DB_URL: process.env.DB_URL || '',
+  JWT_SECRET: process.env.JWT_SECRET || 'your-secret-key',
+  JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || '7d',
+  JWT_REFRESH_EXPIRES_IN: process.env.JWT_REFRESH_EXPIRES_IN || '30d',
+  EMAIL_HOST: process.env.EMAIL_HOST || '',
+  EMAIL_PORT: process.env.EMAIL_PORT || 587,
+  EMAIL_SECURE: process.env.EMAIL_SECURE || 'false',
+  EMAIL_USER: process.env.EMAIL_USER || '',
+  EMAIL_PASS: process.env.EMAIL_PASS || '',
+  REDIS_URL: process.env.REDIS_URL || 'redis://localhost:6379',
+  STORAGE_PROVIDER: process.env.STORAGE_PROVIDER || 'local',
+  LOCAL_UPLOAD_PATH: process.env.LOCAL_UPLOAD_PATH || 'uploads',
+  R2_ENDPOINT: process.env.R2_ENDPOINT || '',
+  R2_ACCESS_KEY_ID: process.env.R2_ACCESS_KEY_ID || '',
+  R2_SECRET_ACCESS_KEY: process.env.R2_SECRET_ACCESS_KEY || '',
+  R2_BUCKET_NAME: process.env.R2_BUCKET_NAME || '',
+  R2_REGION: process.env.R2_REGION || 'auto',
+  R2_PUB_DEV_URL: process.env.R2_PUB_DEV_URL || '',
+};

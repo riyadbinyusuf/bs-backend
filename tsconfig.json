@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ES2020",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "./dist",
+    "strict": true,
+    "types": [
+      "node"
+    ],
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleDetection": "force",
+    "noEmit": false,
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "node_modules/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "drizzle.config.ts",
+    "src/utils/env.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
